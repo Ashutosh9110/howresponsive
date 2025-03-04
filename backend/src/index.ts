@@ -2,6 +2,8 @@ import express, { Request, Response } from 'express';
 import axios from 'axios';
 import cors from 'cors';
 
+import authRouter from './routes/authRoutes'
+
 const app = express();
 const PORT = 5000;
 
@@ -9,6 +11,8 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+
+app.use('/auth',authRouter)
 
 app.post('/fetch-website', async (req: Request, res: Response) => {
   let { url } = req.body;
