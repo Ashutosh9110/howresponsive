@@ -16,6 +16,7 @@ const App: React.FC = () => {
       const response = await axios.post('http://localhost:5000/fetch-website', {
         url: url.startsWith('http') ? url : `https://${url}`,
       });
+      console.log(response);
       setWebsiteContent(response.data);
     } catch (error) {
       console.error('Error fetching website:', error);
@@ -39,7 +40,9 @@ const App: React.FC = () => {
         {websiteContent ? (
           <iframe
             title="website-viewer"
-            srcDoc={websiteContent}
+            //  should use srcDoc if https and src if localhost
+            // srcDoc={websiteContent} 
+            src={url}
             width="100%"
             height="600px"
             sandbox="allow-scripts allow-same-origin allow-forms"
