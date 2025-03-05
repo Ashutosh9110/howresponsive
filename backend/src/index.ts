@@ -3,6 +3,7 @@ import axios from 'axios';
 import cors from 'cors';
 
 import authRouter from './routes/authRoutes'
+import { connectDB } from './db/db';
 
 const app = express();
 const PORT = 5000;
@@ -47,4 +48,5 @@ app.post('/fetch-website', async (req: Request, res: Response) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  connectDB();
 });
