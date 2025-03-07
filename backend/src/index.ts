@@ -1,9 +1,12 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
 import cors from 'cors';
-
+import dotenv from 'dotenv'
 import authRouter from './routes/authRoutes'
 import { connectDB } from './db/db';
+
+
+dotenv.config();
 
 const app = express();
 const PORT = 5000;
