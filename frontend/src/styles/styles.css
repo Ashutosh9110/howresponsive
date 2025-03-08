@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 *{
@@ -16,7 +17,7 @@ body{
     width: 100%;
     min-height: 100vh;
     backdrop-filter: blur(1px);
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .container nav{
@@ -34,7 +35,7 @@ body{
     color: #fff;
     position: relative;
     cursor: pointer;
-    pointer-events: all;
+    /* pointer-events: all; */
     letter-spacing: 4px;
 }
 
@@ -53,7 +54,7 @@ body{
     font-weight: 400;
     padding: 12px 18px;
     cursor: pointer;
-    pointer-events: all;
+    /* pointer-events: all; */
     overflow: hidden;
 }
 
@@ -83,8 +84,16 @@ body{
     align-items: center;
     height: calc(100vh - 100px);
     text-align: center;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
+
+
+
+
+.all h1 {
+    background-color: red;
+}
+
 
 .textBox h1{
     font-size: 3.4em;
@@ -117,6 +126,22 @@ body{
 .textBox .homeBtn:hover{
     background-color: var(--i);
     color: #000;
+}
+
+.homeBtn    {
+    font-family: 'Poppins';
+    padding: 8px 18px;
+    margin: 16px 12px;
+    font-size: 26px;
+    background-color: transparent;
+    color: var(--i);
+    outline: none;
+    border: 3px solid var(--i);
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: .3s;
+    font-weight: 600;
 }
 
 .bgAnimation{
@@ -166,3 +191,51 @@ body{
         top: 120%;
     }
 }
+
+.responsive-heading {
+    font-size: 2.5em;
+    color: #00bfff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inputUrl {
+
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    text-align: center;
+}
+
+/* Replace your existing flip-card styles with these */
+.flip-card {
+    perspective: 1000px;
+    background-color: transparent;
+  }
+  
+  .flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+  
+  .flip-card-front {
+    z-index: 2;
+  }
+  
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+  
+  /* Add some ambient animation for a futuristic feel */
+  .flip-card:hover {
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
