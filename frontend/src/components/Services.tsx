@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+// import './index.css'; // Tailwind should be in index.css
+
+
 // import { div } from 'framer-motion/client';
 // import './App.css';
 // import NavBar from './components/Navbar';
@@ -27,18 +30,19 @@ import axios from 'axios';
   
     return (
 
-      <section className='overflow-hidden relative'>
-  
-      <div className='min-h-[650px] pt-20'>
-        <div className='flex flex-col items-center justify-center'>
-          <h1 className='font-bold text-4xl text-left px-20'>Check your website's responsiveness here...</h1>
-          <div className='mt-[30px]'>
+      <section>
+      <div>
+        <div>
+          <h1 className='responsive-heading'>Check your website's responsiveness here...</h1>
+          <div>
             <input
-              className='rounded-3xl border w-100 h-10 text-center'
+              className='inputUrl'
               type="text"
               placeholder="Enter the URL. . ."
               value={url}
-              onChange={(e) => setUrl(e.target.value)}
+              onChange={(e) => {
+                console.log("Input changed:", e.target.value);
+                setUrl(e.target.value)}}
            />
         </div>
         {/* <button className="homeBtn" style={{ "--i": "#00bfff" }}>Click here</button> */}
@@ -46,8 +50,8 @@ import axios from 'axios';
 
           <button 
             className='homeBtn'
-            style={{ "--i": "#00bfff" }}
-            onClick={handleFetchWebsite}>Load Website</button>
+            style={{ "--i": "#00bfff" } as React.CSSProperties }
+            onClick={() => handleFetchWebsite()}>Load Website</button>
         <div className="">
           {websiteContent ? (
             <iframe
@@ -58,7 +62,7 @@ import axios from 'axios';
               sandbox="allow-scripts allow-same-origin allow-forms"
             />
           ) : (
-            <h6 className='font-bold'>Enter a URL to load the website.</h6>
+            <h6 className=''>Enter a URL to load the website.</h6>
           )}
         </div>
       </div>
