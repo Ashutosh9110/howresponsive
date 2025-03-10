@@ -1,14 +1,27 @@
-// Team.jsx
-import CardFlip from "./CardFlip";
+import ashu from "../assets/8.jpeg"
+import moksha from "../assets/moksha.png"
+
 
 const Team = () => {
   return (
-    <section className="page-container h-screen"> {/* Changed from container to page-container */}
-      <h2 className="responsive-heading">Meet Our Team</h2>
-      <div className="max-w-6xl mx-auto px-4"> {/* Using Tailwind for container */}
-        <CardFlip />
-      </div>
-    </section>
+    <div className="card"> 
+      <div>
+          <h1>Ashutosh</h1>
+          <a href="https://github.com/Ashutosh9110" target="_blank" rel="noopener noreferrer">
+          <img src={ashu} alt="Ashutosh's GitHub" />
+          </a>
+          <a href="https://work-with-ashutosh.netlify.app/" target="_blank" rel="noopener noreferrer">Portfolio Link</a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad exercitationem voluptatem ullam et</p>
+        </div>
+        <div>
+          <h1>Moksha</h1>
+          <a href="https://github.com/mokshanirugutti"  target="_blank" rel="noopener noreferrer">
+          <img src={moksha} alt="Moksha's GitHub" />
+          </a>
+          <a href="https://mokshanirugutti.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio Link</a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ad exercitationem voluptatem ullam et</p>
+          </div>
+    </div>
   );
 };
 
