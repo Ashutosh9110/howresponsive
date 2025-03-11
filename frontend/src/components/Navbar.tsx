@@ -6,6 +6,7 @@ const Navbar = () => {
 const navigate = useNavigate()
 
   return (
+    // div clasname: w-full flex justify-between items-center px-10 h-[100px] box-border text-white
     <nav>
       <h1 onClick={() => navigate("/")}>
         <span>How</span>Responsive
