@@ -3,6 +3,8 @@ import { Compare } from "../../components/ui/Compare";
 import moksha from "../../../../public/assets/moksha.png"
 import ashu from "../../../../public/assets/8.jpeg"
 
+
+
 export function CompareDemo() {
   return (
     <div className="w-full h-screen flex items-center justify-center"> {/* New wrapper */}
