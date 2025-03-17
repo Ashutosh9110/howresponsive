@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation' // Add this for active route detection
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const pathname = usePathname(); // Get current route path
 
   // Handle scroll effect
   useEffect(() => {
@@ -21,7 +23,7 @@ const Navbar = () => {
     { title: 'Home', href: '/' },
     { title: 'Services', href: '/services' },
     { title: 'Our Team', href: '/team' },
-    { title: 'Contact', href: '#' }
+    { title: 'Contact', href: '/contact' } // Changed from '#' to actual route
   ];
 
   return (
@@ -37,7 +39,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/">
+          <Link href="/" className="outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -74,10 +76,15 @@ const Navbar = () => {
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Link href={item.href}>
-                  <span className="relative text-white/90 hover:text-white text-lg font-medium">
+                <Link 
+                  href={item.href}
+                  className={`outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-2
+                    ${pathname === item.href ? 'text-white' : 'text-white/90 hover:text-white'}
+                  `}
+                >
+                  <span className="relative text-lg font-medium">
                     {item.title}
-                    {hoveredItem === index && (
+                    {(hoveredItem === index || pathname === item.href) && (
                       <motion.span
                         layoutId="navbar-underline"
                         className="absolute left-0 right-0 h-0.5 -bottom-1 bg-gradient-to-r 
