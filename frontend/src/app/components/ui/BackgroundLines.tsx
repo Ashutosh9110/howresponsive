@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import React from "react";
-import { CompareDemo } from "./CompareDemo";
 
 export const BackgroundLines = ({
   children,
@@ -90,6 +89,26 @@ const SVG = ({
     "#860909",
     "#6A286F",
     "#604483",
+    "#2E8B57",
+    "#FF69B4",
+    "#4169E1",
+    "#FFD700",
+    "#32CD32",
+    "#FF4500",
+    "#9370DB",
+    "#20B2AA",
+    "#FFA500",
+    "#BA55D3",
+    "#3CB371",
+    "#FF6347",
+    "#4682B4",
+    "#DDA0DD",
+    "#98FB98",
+    "#87CEEB",
+    "#DDA0DD",
+    "#F0E68C",
+    "#E6E6FA",
+    "#FFB6C1",
   ];
   return (
     <motion.svg
@@ -104,7 +123,7 @@ const SVG = ({
       {paths.map((path, idx) => (
         <motion.path
           d={path}
-          stroke={colors[idx]}
+          stroke={colors[idx % colors.length]}
           strokeWidth="2.3"
           strokeLinecap="round"
           variants={pathVariants}
@@ -115,18 +134,17 @@ const SVG = ({
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.floor(Math.random() * 10),
-            repeatDelay: Math.floor(Math.random() * 10 + 2),
+            delay: idx * 0.5,
+            repeatDelay: 2,
           }}
           key={`path-first-${idx}`}
         />
       ))}
 
-      {/* duplicate for more paths */}
       {paths.map((path, idx) => (
         <motion.path
           d={path}
-          stroke={colors[idx]}
+          stroke={colors[(idx + 10) % colors.length]}
           strokeWidth="2.3"
           strokeLinecap="round"
           variants={pathVariants}
@@ -137,13 +155,33 @@ const SVG = ({
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
-            delay: Math.floor(Math.random() * 10),
-            repeatDelay: Math.floor(Math.random() * 10 + 2),
+            delay: (idx + 5) * 0.5,
+            repeatDelay: 2,
           }}
           key={`path-second-${idx}`}
         />
       ))}
-      <CompareDemo />
+
+      {paths.map((path, idx) => (
+        <motion.path
+          d={path}
+          stroke={colors[(idx + 20) % colors.length]}
+          strokeWidth="2.3"
+          strokeLinecap="round"
+          variants={pathVariants}
+          initial="initial"
+          animate="animate"
+          transition={{
+            duration: (svgOptions?.duration || 10) * 1.5,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+            delay: (idx + 10) * 0.5,
+            repeatDelay: 2,
+          }}
+          key={`path-third-${idx}`}
+        />
+      ))}
     </motion.svg>
   );
 };

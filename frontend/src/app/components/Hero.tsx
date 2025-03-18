@@ -22,7 +22,7 @@ const Hero = () => {
         >
           <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r 
             from-purple-500 via-blue-500 to-teal-500 filter drop-shadow-lg mb-2">
-            Check your Website's
+            Check your Website&apos;s
           </span>{" "}
           <span className="inline-block text-white filter drop-shadow-lg">
             responsiveness with just one click
