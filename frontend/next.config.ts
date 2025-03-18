@@ -10,9 +10,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   devIndicators: {
-    buildActivity: true,
+    buildActivity: false,
     buildActivityPosition: "bottom-right",
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;

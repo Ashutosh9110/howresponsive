@@ -214,7 +214,7 @@ export const Compare = ({
                 width={400}
                 height={400}
                 className={cn(
-                  "absolute inset-0 z-20 rounded-2xl shrink-0 w-full h-full select-none",
+                  "absolute inset-0   z-20 rounded-2xl shrink-0 w-full h-full select-none",
                   firstImageClassName
                 )}
                 draggable={false}
