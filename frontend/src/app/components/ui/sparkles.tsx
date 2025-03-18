@@ -1,6 +1,6 @@
 "use client";
-import React, { useId, useMemo } from "react";
-import { useEffect, useState } from "react";
+import React, { useId, useMemo, useEffect, useRef } from "react";
+import { useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
@@ -18,6 +18,18 @@ type ParticlesProps = {
   particleColor?: string;
   particleDensity?: number;
 };
+
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+  opacity: number;
+}
+
+const particles: Particle[] = [];
+
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,

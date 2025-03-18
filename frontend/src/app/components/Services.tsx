@@ -4,7 +4,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
-interface ServiceProps {}
+interface ServiceProps {
+  title?: string;
+  description?: string;
+  icon?: React.ReactNode;
+}
 
 const Services: React.FC<ServiceProps> = () => {
   const [url, setUrl] = useState('');
@@ -43,7 +47,7 @@ const Services: React.FC<ServiceProps> = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold text-center text-white mb-8"
           >
-            Check your website's responsiveness here...
+            Check your website&apos;s responsiveness here...
           </motion.h1>
 
           <div className="flex flex-col items-center space-y-4">
@@ -105,6 +109,10 @@ const Services: React.FC<ServiceProps> = () => {
               </div>
             )}
           </motion.div>
+
+          <p className="text-gray-400 text-center">
+            Enter your website&apos;s URL to check its responsiveness
+          </p>
         </div>
       </div>
     </section>
