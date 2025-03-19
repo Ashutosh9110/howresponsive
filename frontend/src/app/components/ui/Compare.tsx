@@ -18,6 +18,8 @@ interface CompareProps {
   showHandlebar?: boolean;
   autoplay?: boolean;
   autoplayDuration?: number;
+  firstImageLabel?: string;
+  secondImageLabel?: string;
 }
 export const Compare = ({
   firstImage = "",
@@ -30,12 +32,15 @@ export const Compare = ({
   showHandlebar = true,
   autoplay = false,
   autoplayDuration = 5000,
+  firstImageLabel,
+  secondImageLabel,
 }: CompareProps) => {
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [isDragging, setIsDragging] = useState(false);
 
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
@@ -86,6 +91,8 @@ export const Compare = ({
   }
 
   const handleStart = useCallback(
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
     (clientX: number) => {
       if (slideMode === "drag") {
         setIsDragging(true);
@@ -152,7 +159,7 @@ export const Compare = ({
   return (
     <div
       ref={sliderRef}
-      className={cn("w-[400px] h-[400px] overflow-hidden", className)}
+      className={cn("w-[400px] h-[400px] overflow-hidden relative", className)}
       style={{
         position: "relative",
         cursor: slideMode === "drag" ? "grab" : "col-resize",
@@ -166,6 +173,18 @@ export const Compare = ({
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
     >
+      {/* Labels */}
+      {firstImageLabel && (
+        <div className="absolute top-4 left-4 z-50 bg-black/70 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-lg">
+          {firstImageLabel}
+        </div>
+      )}
+      {secondImageLabel && (
+        <div className="absolute top-4 right-4 z-50 bg-black/70 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-lg">
+          {secondImageLabel}
+        </div>
+      )}
+
       <AnimatePresence initial={false}>
         <motion.div
           className="h-full w-px absolute top-0 m-auto z-30 bg-gradient-to-b from-transparent from-[5%] to-[95%] via-indigo-500 to-transparent"

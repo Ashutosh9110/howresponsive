@@ -5,6 +5,7 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# This redirect is optional - it ensures that all routes will be handled by Next.js
 [[redirects]]
   from = "/*"
   to = "/index.html"
