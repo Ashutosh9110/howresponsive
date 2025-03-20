@@ -29,8 +29,8 @@ export function CompareDemo() {
             className="w-full h-full rounded-[22px] md:rounded-lg"
             slideMode="hover"
             autoplay={true}
-            firstImageLabel="Moksha"
-            secondImageLabel="Ashutosh"
+            firstImageLabel=""
+            secondImageLabel=""
           />
         </div>
       </div>
