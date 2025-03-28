@@ -53,7 +53,7 @@ const Hero = () => {
               opacity-0 blur-xl transition-opacity"
             whileHover={{ opacity: 0.4 }}
           />
-          <span className="relative z-10">Click here</span>
+          <span className="relative z-10 cursor-pointer">Click here</span>
         </motion.button>
 
         {/* Optional: Add a subtle gradient background effect */}
